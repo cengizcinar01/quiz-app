@@ -10,14 +10,6 @@ header {
     border-bottom: 5px solid rgba(243, 106, 62, 1);
 }
 
-@media (max-width: 1000px) {
-    header {
-        flex-direction: column;
-        gap: 20px;
-        padding-bottom: 37px;
-    }
-}
-
 .logo {
     width: 240px;
 }
@@ -28,14 +20,6 @@ header {
     justify-content: center;
     font-size: 24px;
     align-items: center;
-}
-
-@media (max-width: 680px) {
-    .main-nav {
-        padding-top: 10px;
-        flex-direction: column;
-        gap: 30px;
-    }
 }
 
 .nav-link {
@@ -76,13 +60,40 @@ header {
 .quiz-nav-btn .arrow-right-icon-container img {
     width: 1.1em;
     transition: transform 0.3s;
-    color: #7b52b9;
 }
 
 .quiz-nav-btn:hover .arrow-right-icon-container img {
     transform: translateX(0.1em);
 }
 
-.quiz-nav-btn:active .arrow-right-icon-container {
-    transform: scale(0.95);
+@media (max-width: 1000px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 37px;
+    }
+
+    .arrow-right-icon-container {
+        transition: none;
+    }
+
+    .quiz-nav-btn:hover .arrow-right-icon-container {
+        width: 36px;
+    }
+
+    .quiz-nav-btn .arrow-right-icon-container img {
+        transition: none;
+    }
+
+    .quiz-nav-btn:hover .arrow-right-icon-container img {
+        transform: none;
+    }
+}
+
+@media (max-width: 680px) {
+    .main-nav {
+        padding-top: 10px;
+        flex-direction: column;
+        gap: 30px;
+    }
 }
