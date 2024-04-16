@@ -23,6 +23,9 @@ export default function Quiz({ changePage }) {
                             <input type="radio" id="value-4" name="value-radio" value="value-4" />
                             <label for="value-4">*demo</label>
                         </div>
+                        <div class="button-container">
+                            <button>Weiter</button>
+                        </div>
                     </div>
                 </div>
             </div>
