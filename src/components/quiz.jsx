@@ -1,34 +1,41 @@
 import React from 'react';
 import './css/quiz.css';
 
-export default function Quiz({ changePage }) {
+export default function Quiz({ quizData, currentQuestionIndex, userSelection, handleOptionChange, handleNextQuestion }) {
+    const question = quizData[currentQuestionIndex];
+
     return (
-        <>
-            <div className="quiz-main">
-                <div className="quiz-container">
-                    <div className="quiz-action-container">
-                        <div className="count-loader-container">
-                            <span class="loader"></span>
-                            <span className="countdown">20</span>
+        <div className="quiz-main">
+            <div className="quiz-container">
+                <div className="quiz-action-container">
+                    <div className="count-loader-container">
+                        <span className="loader"></span>
+                        <span className="countdown">20</span>
+                    </div>
+                    <h2 className="quiz-current-question">
+                        Frage {currentQuestionIndex + 1} / {quizData.length}
+                    </h2>
+                    <p className="quiz-question">{question.question}</p>
+
+                    {question.answer.map((answer, index) => (
+                        <div className="answer-container" key={index}>
+                            <input
+                                type="radio"
+                                id={`value-${index}`}
+                                name="value-radio"
+                                value={index}
+                                checked={userSelection === index}
+                                onChange={() => handleOptionChange(index)}
+                            />
+                            <label htmlFor={`value-${index}`}>{answer}</label>
                         </div>
-                        <h2 className="quiz-current-question">Frage 1 / 10</h2>
-                        <p className="quiz-question">Wie selektiert man ein Element mit id=demo?</p>
-                        <div class="answer-container">
-                            <input type="radio" id="value-1" name="value-radio" value="value-1" />
-                            <label for="value-1">#demo</label>
-                            <input type="radio" id="value-2" name="value-radio" value="value-2" />
-                            <label for="value-2">.demo</label>
-                            <input type="radio" id="value-3" name="value-radio" value="value-3" />
-                            <label for="value-3">Demo</label>
-                            <input type="radio" id="value-4" name="value-radio" value="value-4" />
-                            <label for="value-4">*demo</label>
-                        </div>
-                        <div class="button-container">
-                            <button>Weiter</button>
-                        </div>
+                    ))}
+
+                    <div className="button-container">
+                        <button onClick={handleNextQuestion}>Weiter</button>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
