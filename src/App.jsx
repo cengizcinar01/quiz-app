@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import QuizInfo from './components/QuizInfo';
 import Quiz from './components/quiz';
 import Advertising from './components/advertising';
+import Result from './components/result';
 import quizData from './data/quizData';
 
 function App() {
@@ -35,6 +36,19 @@ function App() {
         setUserSelection(null);
     };
 
+    const calculateResults = () => {
+        const correctAnswers = quizState.filter((q, index) => q.answerIndex === q.myAnswer).length;
+        const totalQuestions = quizState.length;
+        const percentageCorrect = (correctAnswers / totalQuestions) * 100;
+
+        return {
+            correctAnswers,
+            totalQuestions,
+            percentageCorrect,
+        };
+    };
+    const results = calculateResults();
+
     return (
         <>
             <Header currentPage={currentPage} changePage={setCurrentPage} resetQuiz={resetQuiz} />
@@ -51,7 +65,8 @@ function App() {
                     setCurrentPage={setCurrentPage}
                 />
             )}
-            {currentPage === 'advertising' && <Advertising />}
+            {currentPage === 'advertising' && <Advertising results={results} changePage={setCurrentPage} resetQuiz={resetQuiz} />}
+            {currentPage === 'result' && <Result results={results} quizData={quizState} />}
             <Footer />
         </>
     );

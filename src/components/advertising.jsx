@@ -1,44 +1,69 @@
-import React, { useState } from "react";
-import "./css/advertising.css";
+import React, { useEffect, useState } from 'react';
+import './css/quiz.css';
 
-const AdvertisingPage = () => {
-  const [showButton, setShowButton] = useState(false);
+const AdvertisingPage = ({ results, changePage, resetQuiz }) => {
+    const handleQuizRestart = () => {
+        resetQuiz();
+        changePage('quiz');
+    };
+    const handleShowResult = () => {
+        changePage('result');
+    };
+    const [message, setMessage] = useState('');
+    const [imageSrc, setImageSrc] = useState('');
 
-  const redirectToResults = () => {
-    window.location.href = "/result";
-  };
+    useEffect(() => {
+        if (results.percentageCorrect >= 80) {
+            setMessage('Herzlichen Glückwunsch! Du hast hervorragend abgeschnitten.');
+            setImageSrc('https://i.giphy.com/xT8qBsOjMOcdeGJIU8.webp');
+        } else if (results.percentageCorrect >= 50) {
+            setMessage('Gut gemacht! Du bist auf dem richtigen Weg.');
+            setImageSrc('https://i.giphy.com/tyxovVLbfZdok.webp');
+        } else {
+            setMessage('Mach dir keine Sorgen, Übung macht den Meister.');
+            setImageSrc('https://i.giphy.com/d2lcHJTG5Tscg.webp');
+        }
+    }, [results]);
 
-  setTimeout(() => {
-    setShowButton(true);
-  }, 10000);
+    return (
+        <>
+            <div className="quiz-main">
+                <div className="quiz-container">
+                    <div className="quiz-ad-container">
+                        {imageSrc && (
+                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                <img src={imageSrc} alt="Ergebnisbild" style={{ width: '60%', height: 'auto', maxWidth: '480px' }} />
+                            </div>
+                        )}
+                        <p className="quiz-ad-text-result">
+                            Du hast {results.correctAnswers} von {results.totalQuestions} Fragen richtig beantwortet.
+                        </p>
+                        <p className="quiz-ad-text">{message}</p>
 
-  return (
-    <div>
-      <h1>Advertising Page</h1>
-      <p>
-        Willkommen zum ultimativen Software Bootcamp! Möchtest du deine
-        Programmierkenntnisse auf das nächste Level bringen? Träumst du davon,
-        innovative Software zu entwickeln und in der Tech-Branche
-        durchzustarten? Dann ist unser Software Bootcamp genau das Richtige für
-        dich! In unserem intensiven und praxisorientierten Bootcamp bieten wir:
-        Expertengeleitete Schulungen in den neuesten Programmiersprachen und
-        Technologien Praktische Projekte, um deine Fähigkeiten sofort anzuwenden
-        Individuelles Mentoring und Unterstützung bei deinem Lernprozess Zugang
-        zu einem Netzwerk aus erfahrenen Profis und potenziellen Arbeitgebern
-        Karriereorientierte Workshops und Ressourcen, um deine beruflichen Ziele
-        zu erreichen Egal, ob du gerade erst anfängst oder bereits Erfahrung
-        hast, unser Bootcamp ist darauf ausgerichtet, dich auf deiner Reise zum
-        Software-Experten zu begleiten. Bewirb dich jetzt und sichere dir deinen
-        Platz im nächsten Kurs! Starte noch heute deine Karriere in der
-        aufregenden Welt der Softwareentwicklung!
-      </p>
-      {showButton && (
-        <button className="btn-ad-style" onClick={redirectToResults}>
-          Go to Results
-        </button>
-      )}
-    </div>
-  );
+                        <p className="quiz-ad-promotion-text">
+                            Starte deine Karriere als Full Stack Developer mit dem{' '}
+                            <a className="ad-link-text" href="https://talents.taktsoft.com/" target="_blank">
+                                Taktsoft Campus Talents Bootcamp!
+                            </a>{' '}
+                            Praxisnahe Kurse und erfahrene Dozenten bereiten dich auf die Tech-Welt vor.
+                        </p>
+                        {/* Logo mit Link in einem neuen Tab */}
+                        <a href="https://talents.taktsoft.com/" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src="https://talents.taktsoft.com/img/logo-campus-talents.png"
+                                alt="Taktsoft Campus Talents Logo"
+                                style={{ width: 'auto', height: 'auto', maxWidth: '35%' }}
+                            />
+                        </a>
+                    </div>
+                    <div className="button-container ad-page">
+                        <button onClick={handleQuizRestart}>Neustarten</button>
+                        <button onClick={handleShowResult}>Dein Ergebnis</button>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 };
 
 export default AdvertisingPage;
