@@ -3,6 +3,7 @@ import './css/quiz.css';
 
 export default function Quiz({ quizData, currentQuestionIndex, userSelection, handleOptionChange, handleNextQuestion }) {
     const question = quizData[currentQuestionIndex];
+    const isAnswerSelected = userSelection !== null;
 
     return (
         <>
@@ -33,7 +34,9 @@ export default function Quiz({ quizData, currentQuestionIndex, userSelection, ha
                         ))}
 
                         <div className="button-container">
-                            <button onClick={handleNextQuestion}>Weiter</button>
+                            <button onClick={handleNextQuestion} disabled={!isAnswerSelected}>
+                                Weiter
+                            </button>
                         </div>
                     </div>
                 </div>
