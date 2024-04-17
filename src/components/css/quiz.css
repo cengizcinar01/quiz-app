@@ -8,7 +8,7 @@
 
 .quiz-container {
     width: 500px;
-    height: 600px;
+    height: 650px;
     margin: 50px 20px;
     border-radius: 50px;
     backdrop-filter: blur(10px) saturate(100%);
@@ -82,8 +82,6 @@
     border-radius: 10px;
     overflow: hidden;
 }
-
-
 
 @keyframes prog {
     to {
@@ -198,4 +196,40 @@
     .quiz-info-text {
         font-size: 18px;
     }
+}
+
+.quiz-ad-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    margin: 30px;
+}
+
+.quiz-ad-text-result {
+    font-size: 16px;
+    line-height: 1.8rem;
+}
+
+.quiz-ad-text {
+    font-size: 20px;
+    line-height: 1.8rem;
+}
+
+.quiz-ad-promotion-text {
+    font-size: 18px;
+    line-height: 1.5rem;
+}
+
+.ad-link-text {
+    color: #ea5053
+}
+
+.ad-link-text:active {
+    color: #ea5053
+}
+
+.ad-page {
+    margin-top: 10px;
 }
