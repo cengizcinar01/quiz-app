@@ -83,16 +83,7 @@
     overflow: hidden;
 }
 
-.loader:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 0;
-    background: rgb(255, 255, 255);
-    animation: 20s prog ease-in infinite;
-}
+
 
 @keyframes prog {
     to {
