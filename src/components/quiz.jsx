@@ -5,6 +5,8 @@ export default function Quiz({ quizData, currentQuestionIndex, userSelection, ha
     const question = quizData[currentQuestionIndex];
     const isAnswerSelected = userSelection !== null;
 
+    const buttonStyle = isAnswerSelected ? { undefined } : { background: 'gray', color: 'white', cursor: 'not-allowed' };
+
     return (
         <>
             <div className="quiz-main">
@@ -34,7 +36,7 @@ export default function Quiz({ quizData, currentQuestionIndex, userSelection, ha
                         ))}
 
                         <div className="button-container">
-                            <button onClick={handleNextQuestion} disabled={!isAnswerSelected}>
+                            <button onClick={handleNextQuestion} disabled={!isAnswerSelected} style={buttonStyle}>
                                 Weiter
                             </button>
                         </div>
