@@ -37,7 +37,7 @@ function App() {
 
     return (
         <>
-            <Header />
+            <Header currentPage={currentPage} changePage={setCurrentPage} />
             {currentPage === 'home' && <Home changePage={setCurrentPage} />}
             {currentPage === 'quizInfo' && <QuizInfo changePage={setCurrentPage} />}
             {currentPage === 'quiz' && (
