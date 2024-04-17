@@ -3,7 +3,11 @@ import './css/header.css';
 import logo from '../assets/devquiz-logo.png';
 import arrowIcon from '../assets/arrow-right.svg';
 
-export default function Header({ currentPage, changePage }) {
+export default function Header({ currentPage, changePage, resetQuiz }) {
+    const handleQuizRestart = () => {
+        resetQuiz();
+        changePage('quiz');
+    };
     return (
         <>
             <header>
@@ -23,7 +27,7 @@ export default function Header({ currentPage, changePage }) {
                                 </a>
                             </li>
                             <li>
-                                <a className="nav-link hover-text" onClick={() => changePage('quiz')}>
+                                <a className="nav-link hover-text" onClick={handleQuizRestart}>
                                     Quiz wiederholen
                                 </a>
                             </li>

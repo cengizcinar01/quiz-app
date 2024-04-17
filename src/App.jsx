@@ -37,9 +37,9 @@ function App() {
 
     return (
         <>
-            <Header currentPage={currentPage} changePage={setCurrentPage} />
+            <Header currentPage={currentPage} changePage={setCurrentPage} resetQuiz={resetQuiz} />
             {currentPage === 'home' && <Home changePage={setCurrentPage} />}
-            {currentPage === 'quizInfo' && <QuizInfo changePage={setCurrentPage} />}
+            {currentPage === 'quizInfo' && <QuizInfo changePage={setCurrentPage} resetQuiz={resetQuiz} />}
             {currentPage === 'quiz' && (
                 <Quiz
                     quizData={quizState}
