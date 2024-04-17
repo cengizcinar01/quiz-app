@@ -1,7 +1,12 @@
 import React from 'react';
 import './css/quiz.css';
 
-function QuizInfo({ changePage }) {
+function QuizInfo({ changePage, resetQuiz }) {
+    const handleQuizRestart = () => {
+        resetQuiz();
+        changePage('quiz');
+    };
+
     return (
         <>
             <div className="quiz-main">
@@ -14,7 +19,7 @@ function QuizInfo({ changePage }) {
                         <p className="quiz-info-text">Bereit, dein Wissen zu testen? Klick auf 'Quiz starten' und zeig, was du kannst!</p>
                     </div>
                     <div className="button-container">
-                        <button onClick={() => changePage('quiz')}>Quiz starten</button>
+                        <button onClick={handleQuizRestart}>Quiz starten</button>
                     </div>
                 </div>
             </div>

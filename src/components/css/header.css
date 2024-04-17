@@ -97,3 +97,7 @@ header {
         gap: 30px;
     }
 }
+
+.hover-text {
+    cursor: pointer;
+}
