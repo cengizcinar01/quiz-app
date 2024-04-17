@@ -4,6 +4,7 @@ import Header from './components/header';
 import Home from './components/home';
 import Footer from './components/footer';
 import Quiz from './components/quiz';
+import QuizInfo from './components/QuizInfo';
 import quizData from './data/quizData';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <>
             <Header />
             {currentPage === 'home' && <Home changePage={setCurrentPage} />}
+            {currentPage === 'quizInfo' && <QuizInfo changePage={setCurrentPage} />}
             {currentPage === 'quiz' && (
                 <Quiz
                     quizData={quizData}

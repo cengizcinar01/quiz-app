@@ -17,6 +17,7 @@
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     color: white;
+    padding-bottom: 30px;
 }
 
 .quiz-action-container {
@@ -181,5 +182,29 @@
 @media (max-width: 380px) {
     .loader {
         width: 70%;
+    }
+}
+
+/* Quiz Info */
+.quiz-info-page {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.quiz-info-title {
+    font-size: 45px;
+}
+
+.quiz-info-text {
+    font-size: 23px;
+    line-height: 1.8rem;
+}
+
+@media (max-width: 800px) {
+    .quiz-info-text {
+        font-size: 18px;
     }
 }
