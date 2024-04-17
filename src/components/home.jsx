@@ -19,7 +19,7 @@ export default function Home({ changePage }) {
                     </div>
                     <div className="hero-img"></div>
                 </div>
-                <div className="info-section" id="#info-section">
+                <div className="info-section" id="info-section">
                     <div className="question-img"></div>
                     <div className="info-text-section">
                         <h1 className="h1-text">

@@ -17,7 +17,7 @@ function App() {
     const handleOptionChange = (index) => {
         setUserSelection(index);
         const updatedQuizData = [...quizState];
-        updatedQuizData[currentQuestionIndex].userAnswer = index;
+        updatedQuizData[currentQuestionIndex].myAnswer = index;
         setQuizState(updatedQuizData);
     };
 

@@ -15,7 +15,7 @@ export default function Header() {
                         </a>
                     </li>
                     <li>
-                        <a className="nav-link" href="">
+                        <a className="nav-link" href="#info-section">
                             Was ist DevQuiz?
                         </a>
                     </li>
