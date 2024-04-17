@@ -8,6 +8,14 @@ export default function Header({ currentPage, changePage, resetQuiz }) {
         resetQuiz();
         changePage('quiz');
     };
+
+    const scrollToInfoSection = () => {
+        const section = document.getElementById('info-section');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <>
             <header>
@@ -35,7 +43,7 @@ export default function Header({ currentPage, changePage, resetQuiz }) {
                     ) : (
                         <>
                             <li>
-                                <a className="nav-link" href="#info-section">
+                                <a className="nav-link hover-text" onClick={scrollToInfoSection}>
                                     Was ist DevQuiz?
                                 </a>
                             </li>
