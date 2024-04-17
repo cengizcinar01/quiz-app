@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./css/advertising.css";
 
 const AdvertisingPage = () => {
   const [showButton, setShowButton] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowButton(true);
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const redirectToResults = () => {
     window.location.href = "/result";
   };
+
+  setTimeout(() => {
+    setShowButton(true);
+  }, 10000);
 
   return (
     <div>
@@ -44,3 +40,5 @@ const AdvertisingPage = () => {
     </div>
   );
 };
+
+export default AdvertisingPage;
