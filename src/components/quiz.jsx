@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/quiz.css';
 
-export default function Quiz({ quizData, currentQuestionIndex, userSelection, handleOptionChange, handleNextQuestion, resetQuiz }) {
+export default function Quiz({ quizData, currentQuestionIndex, userSelection, handleOptionChange, handleNextQuestion, resetQuiz, setCurrentPage }) {
     const [countdown, setCountdown] = useState(20);
     const [enableTransition, setEnableTransition] = useState(true);
     const [timeoutReached, setTimeoutReached] = useState(false);
@@ -47,11 +47,16 @@ export default function Quiz({ quizData, currentQuestionIndex, userSelection, ha
         transition: enableTransition ? 'width 1s linear' : 'none',
     };
 
+    const handleFinishQuiz = () => {
+        setCurrentPage('advertising');
+    };
+
     if (timeoutReached) {
         return (
             <div className="quiz-main">
                 <div className="quiz-container">
                     <div className="quiz-info-page">
+                        <h2 className="quiz-info-title">😭</h2>
                         <h2 className="quiz-info-title">Zeit abgelaufen!</h2>
                         <p className="quiz-info-text">Schade, die Zeit ist um. Möchtest du es noch einmal versuchen?</p>
                         <div className="button-container">
@@ -94,9 +99,15 @@ export default function Quiz({ quizData, currentQuestionIndex, userSelection, ha
                         ))}
 
                         <div className="button-container">
-                            <button onClick={handleNextQuestionModified} disabled={!isAnswerSelected} style={buttonStyle}>
-                                Weiter
-                            </button>
+                            {currentQuestionIndex === quizData.length - 1 ? (
+                                <button onClick={handleFinishQuiz} disabled={!isAnswerSelected} style={buttonStyle}>
+                                    Fertig
+                                </button>
+                            ) : (
+                                <button onClick={handleNextQuestionModified} disabled={!isAnswerSelected} style={buttonStyle}>
+                                    Weiter
+                                </button>
+                            )}
                         </div>
                     </div>
                 </div>

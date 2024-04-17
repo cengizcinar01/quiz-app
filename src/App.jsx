@@ -3,8 +3,9 @@ import './App.css';
 import Header from './components/header';
 import Home from './components/home';
 import Footer from './components/footer';
-import Quiz from './components/quiz';
 import QuizInfo from './components/QuizInfo';
+import Quiz from './components/quiz';
+import Advertising from './components/advertising';
 import quizData from './data/quizData';
 
 function App() {
@@ -47,8 +48,10 @@ function App() {
                     handleOptionChange={handleOptionChange}
                     handleNextQuestion={handleNextQuestion}
                     resetQuiz={resetQuiz}
+                    setCurrentPage={setCurrentPage}
                 />
             )}
+            {currentPage === 'advertising' && <Advertising />}
             <Footer />
         </>
     );
