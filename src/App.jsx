@@ -29,6 +29,11 @@ function App() {
         }
     };
 
+    const resetQuiz = () => {
+        setCurrentQuestionIndex(0);
+        setUserSelection(null);
+    };
+
     return (
         <>
             <Header />
@@ -41,6 +46,7 @@ function App() {
                     userSelection={userSelection}
                     handleOptionChange={handleOptionChange}
                     handleNextQuestion={handleNextQuestion}
+                    resetQuiz={resetQuiz}
                 />
             )}
             <Footer />

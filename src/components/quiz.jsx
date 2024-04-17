@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './css/quiz.css';
 
-export default function Quiz({ quizData, currentQuestionIndex, userSelection, handleOptionChange, handleNextQuestion }) {
+export default function Quiz({ quizData, currentQuestionIndex, userSelection, handleOptionChange, handleNextQuestion, resetQuiz }) {
     const [countdown, setCountdown] = useState(20);
     const [enableTransition, setEnableTransition] = useState(true);
+    const [timeoutReached, setTimeoutReached] = useState(false);
     const question = quizData[currentQuestionIndex];
     const isAnswerSelected = userSelection !== null;
 
@@ -13,18 +14,27 @@ export default function Quiz({ quizData, currentQuestionIndex, userSelection, ha
         if (countdown > 0) {
             const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
             return () => clearTimeout(timer);
+        } else {
+            setTimeoutReached(true);
         }
     }, [countdown]);
 
     const handleNextQuestionModified = () => {
         setEnableTransition(false);
         setCountdown(20);
+        setTimeoutReached(false);
 
         setTimeout(() => {
             setEnableTransition(true);
         }, 50);
 
         handleNextQuestion();
+    };
+
+    const handleRestart = () => {
+        setCountdown(20);
+        setTimeoutReached(false);
+        resetQuiz();
     };
 
     const loaderStyle = {
@@ -36,6 +46,22 @@ export default function Quiz({ quizData, currentQuestionIndex, userSelection, ha
         height: '100%',
         transition: enableTransition ? 'width 1s linear' : 'none',
     };
+
+    if (timeoutReached) {
+        return (
+            <div className="quiz-main">
+                <div className="quiz-container">
+                    <div className="quiz-info-page">
+                        <h2 className="quiz-info-title">Zeit abgelaufen!</h2>
+                        <p className="quiz-info-text">Schade, die Zeit ist um. Möchtest du es noch einmal versuchen?</p>
+                        <div className="button-container">
+                            <button onClick={handleRestart}>Neustart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <>
