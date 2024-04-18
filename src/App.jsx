@@ -13,10 +13,8 @@ function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [quizState, setQuizState] = useState(quizData);
-  const [userSelection, setUserSelection] = useState(null);
 
   const handleOptionChange = (index) => {
-    setUserSelection(index);
     const updatedQuizData = [...quizState];
     updatedQuizData[currentQuestionIndex].myAnswerIndex = index;
     setQuizState(updatedQuizData);
@@ -25,7 +23,6 @@ function App() {
   const handleNextQuestion = () => {
     if (currentQuestionIndex < quizState.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setUserSelection(null);
     } else {
       setCurrentPage("advertising");
     }
@@ -33,12 +30,19 @@ function App() {
 
   const resetQuiz = () => {
     setCurrentQuestionIndex(0);
-    setUserSelection(null);
+    setQuizState(
+      quizState.map((question) => {
+        return {
+          ...question,
+          myAnswerIndex: null,
+        };
+      })
+    );
   };
 
   const calculateResults = () => {
     const correctAnswers = quizState.filter(
-      (q, index) => q.answerIndex === q.myAnswerIndex
+      (q) => q.answerIndex === q.myAnswerIndex
     ).length;
     const totalQuestions = quizState.length;
     const percentageCorrect = (correctAnswers / totalQuestions) * 100;
@@ -66,7 +70,6 @@ function App() {
         <Quiz
           quizData={quizState}
           currentQuestionIndex={currentQuestionIndex}
-          userSelection={userSelection}
           onOptionChange={handleOptionChange}
           onNextQuestion={handleNextQuestion}
           onResetQuiz={resetQuiz}

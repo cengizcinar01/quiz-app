@@ -4,7 +4,6 @@ import "./css/quiz.css";
 export default function Quiz({
   quizData,
   currentQuestionIndex,
-  userSelection,
   onOptionChange,
   onNextQuestion,
   onResetQuiz,
@@ -13,7 +12,9 @@ export default function Quiz({
   const [enableTransition, setEnableTransition] = useState(true);
   const [timeoutReached, setTimeoutReached] = useState(false);
   const question = quizData[currentQuestionIndex];
-  const isAnswerSelected = userSelection !== null;
+
+  const isAnswerSelected =
+    quizData[currentQuestionIndex].myAnswerIndex !== null;
 
   const buttonStyle = isAnswerSelected
     ? {}
@@ -99,7 +100,9 @@ export default function Quiz({
                   id={`value-${index}`}
                   name="value-radio"
                   value={index}
-                  checked={userSelection === index}
+                  checked={
+                    quizData[currentQuestionIndex].myAnswerIndex === index
+                  }
                   onChange={() => onOptionChange(index)}
                 />
                 <label htmlFor={`value-${index}`}>{option}</label>
