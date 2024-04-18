@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./css/quiz.css";
+import "./css/Quiz.css";
 
 export default function Quiz({
   quizData,

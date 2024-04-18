@@ -1,7 +1,7 @@
-import "./css/quiz.css";
+import "./css/Quiz.css";
 import quizData from "../data/quizData";
 
-function QuizInfo({ changePage, resetQuiz }) {
+export default function QuizInfo({ changePage, resetQuiz }) {
   const handleQuizRestart = () => {
     resetQuiz();
     changePage("quiz");
@@ -33,5 +33,3 @@ function QuizInfo({ changePage, resetQuiz }) {
     </>
   );
 }
-
-export default QuizInfo;

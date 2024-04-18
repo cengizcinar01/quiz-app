@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import "./css/quiz.css";
+import "./css/Quiz.css";
 
-const Result = ({ quizData, changePage, resetQuiz }) => {
+export default function Result({ quizData, changePage, resetQuiz }) {
   const handleQuizRestart = () => {
     resetQuiz();
     changePage("quiz");
@@ -56,6 +56,4 @@ const Result = ({ quizData, changePage, resetQuiz }) => {
       </div>
     </div>
   );
-};
-
-export default Result;
+}

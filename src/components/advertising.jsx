@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import "./css/quiz.css";
+import "./css/Quiz.css";
 
-const AdvertisingPage = ({ results, changePage, resetQuiz }) => {
+export default function AdvertisingPage({ results, changePage, resetQuiz }) {
   const handleQuizRestart = () => {
     resetQuiz();
     changePage("quiz");
@@ -63,7 +63,6 @@ const AdvertisingPage = ({ results, changePage, resetQuiz }) => {
               Praxisnahe Kurse und erfahrene Dozenten bereiten dich auf die
               Tech-Welt vor.
             </p>
-            {/* Logo mit Link in einem neuen Tab */}
             <a
               href="https://talents.taktsoft.com/"
               target="_blank"
@@ -84,6 +83,4 @@ const AdvertisingPage = ({ results, changePage, resetQuiz }) => {
       </div>
     </>
   );
-};
-
-export default AdvertisingPage;
+}
