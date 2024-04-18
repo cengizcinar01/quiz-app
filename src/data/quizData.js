@@ -4,7 +4,6 @@ const quizData = [
     question: "Wie selektiert man ein Element mit id=demo? ",
     options: ["#demo", ".demo", "Demo", "*demo"],
     answerIndex: 0,
-    myAnswerIndex: null,
   },
   {
     id: 2,
@@ -16,7 +15,6 @@ const quizData = [
       "Creative Style Sheets ",
     ],
     answerIndex: 1,
-    myAnswerIndex: null,
   },
   {
     id: 3,
@@ -28,14 +26,12 @@ const quizData = [
       "body: color=black; ",
     ],
     answerIndex: 2,
-    myAnswerIndex: null,
   },
   {
     id: 4,
     question: "Was ist der Defaultwert für position? ",
     options: ["relative ", "fixed ", "absolute ", "Static"],
     answerIndex: 3,
-    myAnswerIndex: null,
   },
   {
     id: 5,
@@ -47,7 +43,6 @@ const quizData = [
       "bgcolor: red;  ",
     ],
     answerIndex: 0,
-    myAnswerIndex: null,
   },
   {
     id: 6,
@@ -60,7 +55,6 @@ const quizData = [
       '<img link="bild.png" alt="Bild"> ',
     ],
     answerIndex: 0,
-    myAnswerIndex: null,
   },
   {
     id: 7,
@@ -68,14 +62,12 @@ const quizData = [
       "HTML Welches Element wird verwendet, um einen Absatz zu erstellen? ",
     options: ["<p>", "<div>", "<span>", "<h1>"],
     answerIndex: 0,
-    myAnswerIndex: null,
   },
   {
     id: 8,
     question: "Wie definiert man die Schriftgröße eines Elements in CSS? ",
     options: ["font-weight", "font-style", "font-size", "font-family "],
     answerIndex: 2,
-    myAnswerIndex: null,
   },
 ];
 

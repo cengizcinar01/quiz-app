@@ -12,7 +12,14 @@ import quizData from "./data/quizData";
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [quizState, setQuizState] = useState(quizData);
+  const [quizState, setQuizState] = useState(
+    quizData.map((question) => {
+      return {
+        ...question,
+        myAnswerIndex: null,
+      };
+    })
+  );
 
   const handleOptionChange = (index) => {
     const updatedQuizData = [...quizState];
