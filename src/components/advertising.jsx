@@ -8,6 +8,7 @@ const AdvertisingPage = ({ results, changePage, resetQuiz }) => {
     };
     const handleShowResult = () => {
         changePage('result');
+        window.scrollTo(0, 0);
     };
     const [message, setMessage] = useState('');
     const [imageSrc, setImageSrc] = useState('');
@@ -32,7 +33,7 @@ const AdvertisingPage = ({ results, changePage, resetQuiz }) => {
                     <div className="quiz-ad-container">
                         {imageSrc && (
                             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <img src={imageSrc} alt="Ergebnisbild" style={{ width: '60%', height: 'auto', maxWidth: '480px' }} />
+                                <img src={imageSrc} alt="Ergebnisbild" style={{ width: '60%', height: 'auto', maxWidth: '480px', borderRadius: '10px' }} />
                             </div>
                         )}
                         <p className="quiz-ad-text-result">

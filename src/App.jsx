@@ -66,7 +66,7 @@ function App() {
                 />
             )}
             {currentPage === 'advertising' && <Advertising results={results} changePage={setCurrentPage} resetQuiz={resetQuiz} />}
-            {currentPage === 'result' && <Result results={results} quizData={quizState} />}
+            {currentPage === 'result' && <Result results={results} quizData={quizState} changePage={setCurrentPage} resetQuiz={resetQuiz} />}
             <Footer />
         </>
     );
