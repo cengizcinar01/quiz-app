@@ -21,8 +21,8 @@ function QuizInfo({ changePage, resetQuiz }) {
               Frage – schnelles Denken ist gefragt!
             </p>
             <p className="quiz-info-text">
-              Bereit, dein Wissen zu testen? Klick auf 'Quiz starten' und zeig,
-              was du kannst!
+              Bereit, dein Wissen zu testen? Klick auf &apos;Quiz starten&apos;
+              und zeig, was du kannst!
             </p>
           </div>
           <div className="button-container">
