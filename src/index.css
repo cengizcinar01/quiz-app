@@ -20,7 +20,6 @@
   font-style: normal;
   font-weight: 500;
   src: url('./assets/fonts/Inconsolata-Medium.ttf') format('truetype');
-  /* Adjust the file extension if necessary */
 }
 
 /* Inconsolata-SemiBold */
@@ -29,7 +28,6 @@
   font-style: normal;
   font-weight: 600;
   src: url('./assets/fonts/Inconsolata-SemiBold.ttf') format('truetype');
-  /* Adjust the file extension if necessary */
 }
 
 /* Inconsolata-Bold */
