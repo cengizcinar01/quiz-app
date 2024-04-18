@@ -1,4 +1,4 @@
-import "./css/header.css";
+import "./css/Header.css";
 import logo from "../assets/devquiz-logo.png";
 import arrowIcon from "../assets/arrow-right.svg";
 

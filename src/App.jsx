@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "./components/header";
-import Home from "./components/home";
-import Footer from "./components/footer";
+import Header from "./components/Header";
+import Home from "./components/Home";
+import Footer from "./components/Footer";
 import QuizInfo from "./components/QuizInfo";
-import Quiz from "./components/quiz";
-import Advertising from "./components/advertising";
-import Result from "./components/result";
+import Quiz from "./components/Quiz";
+import Advertising from "./components/Advertising";
+import Result from "./components/Result";
 import quizData from "./data/quizData";
 
 function App() {
