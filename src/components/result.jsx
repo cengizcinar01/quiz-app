@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import './css/quiz.css';
 
 const Result = ({ quizData, changePage, resetQuiz }) => {

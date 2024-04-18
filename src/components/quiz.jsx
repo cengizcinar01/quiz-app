@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './css/quiz.css';
 
 export default function Quiz({ quizData, currentQuestionIndex, userSelection, handleOptionChange, handleNextQuestion, resetQuiz, setCurrentPage }) {

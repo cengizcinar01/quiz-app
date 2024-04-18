@@ -1,4 +1,3 @@
-import React from 'react';
 import './css/header.css';
 import logo from '../assets/devquiz-logo.png';
 import arrowIcon from '../assets/arrow-right.svg';
