@@ -1,4 +1,3 @@
-import React from 'react';
 import './css/quiz.css';
 
 function QuizInfo({ changePage, resetQuiz }) {
