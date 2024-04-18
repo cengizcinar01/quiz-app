@@ -27,7 +27,7 @@ function App() {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setUserSelection(null);
     } else {
-      setCurrentPage("home");
+      setCurrentPage("advertising");
     }
   };
 
@@ -67,10 +67,9 @@ function App() {
           quizData={quizState}
           currentQuestionIndex={currentQuestionIndex}
           userSelection={userSelection}
-          handleOptionChange={handleOptionChange}
-          handleNextQuestion={handleNextQuestion}
-          resetQuiz={resetQuiz}
-          setCurrentPage={setCurrentPage}
+          onOptionChange={handleOptionChange}
+          onNextQuestion={handleNextQuestion}
+          onResetQuiz={resetQuiz}
         />
       )}
       {currentPage === "advertising" && (

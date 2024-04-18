@@ -5,10 +5,9 @@ export default function Quiz({
   quizData,
   currentQuestionIndex,
   userSelection,
-  handleOptionChange,
-  handleNextQuestion,
-  resetQuiz,
-  setCurrentPage,
+  onOptionChange,
+  onNextQuestion,
+  onResetQuiz,
 }) {
   const [countdown, setCountdown] = useState(20);
   const [enableTransition, setEnableTransition] = useState(true);
@@ -29,22 +28,23 @@ export default function Quiz({
     }
   }, [countdown]);
 
-  const handleNextQuestionModified = () => {
-    setEnableTransition(false);
-    setCountdown(20);
-    setTimeoutReached(false);
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < quizData.length - 1) {
+      setEnableTransition(false);
+      setCountdown(20);
+      setTimeoutReached(false);
 
-    setTimeout(() => {
-      setEnableTransition(true);
-    }, 50);
-
-    handleNextQuestion();
+      setTimeout(() => {
+        setEnableTransition(true);
+      }, 50);
+    }
+    onNextQuestion();
   };
 
   const handleRestart = () => {
     setCountdown(20);
     setTimeoutReached(false);
-    resetQuiz();
+    onResetQuiz();
   };
 
   const loaderStyle = {
@@ -55,10 +55,6 @@ export default function Quiz({
     top: 0,
     height: "100%",
     transition: enableTransition ? "width 1s linear" : "none",
-  };
-
-  const handleFinishQuiz = () => {
-    setCurrentPage("advertising");
   };
 
   if (timeoutReached) {
@@ -104,30 +100,22 @@ export default function Quiz({
                   name="value-radio"
                   value={index}
                   checked={userSelection === index}
-                  onChange={() => handleOptionChange(index)}
+                  onChange={() => onOptionChange(index)}
                 />
                 <label htmlFor={`value-${index}`}>{option}</label>
               </div>
             ))}
 
             <div className="button-container">
-              {currentQuestionIndex === quizData.length - 1 ? (
-                <button
-                  onClick={handleFinishQuiz}
-                  disabled={!isAnswerSelected}
-                  style={buttonStyle}
-                >
-                  Fertig
-                </button>
-              ) : (
-                <button
-                  onClick={handleNextQuestionModified}
-                  disabled={!isAnswerSelected}
-                  style={buttonStyle}
-                >
-                  Weiter
-                </button>
-              )}
+              <button
+                onClick={handleNextQuestion}
+                disabled={!isAnswerSelected}
+                style={buttonStyle}
+              >
+                {currentQuestionIndex < quizData.length - 1
+                  ? "Weiter"
+                  : "Fertig"}
+              </button>
             </div>
           </div>
         </div>
