@@ -9,7 +9,7 @@ import Advertising from "./components/Advertising";
 import Result from "./components/Result";
 import quizData from "./data/quizData";
 
-function App() {
+export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [quizState, setQuizState] = useState(
@@ -101,5 +101,3 @@ function App() {
     </>
   );
 }
-
-export default App;
