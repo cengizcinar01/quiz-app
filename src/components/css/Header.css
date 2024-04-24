@@ -8,6 +8,7 @@ header {
     padding: 20px 50px;
     align-items: center;
     border-bottom: 5px solid rgba(243, 106, 62, 1);
+    user-select: none;
 }
 
 .logo {
