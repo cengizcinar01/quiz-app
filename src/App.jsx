@@ -91,7 +91,6 @@ export default function App() {
       )}
       {currentPage === "result" && (
         <Result
-          results={results}
           quizData={quizState}
           changePage={setCurrentPage}
           resetQuiz={resetQuiz}
